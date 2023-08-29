@@ -5,6 +5,20 @@ import json
 st.title('Mini App')
 st.header('_Streamlit_ is :blue[cool] :sunglasses:', divider='rainbow')
 
+variable_output = st.text_input("Enter some text", value="Streamlit is awesome")
+font_size = st.slider("Enter a font size", 1, 300, value=30)
+
+html_str = f"""
+<style>
+p.a {{
+  font: bold {font_size}px Courier;
+}}
+</style>
+<p class="a">{variable_output}</p>
+"""
+
+st.markdown(html_str, unsafe_allow_html=True)
+
 age = st.slider('How old are you?', 0, 130, 25)
 st.write("I'm ", age, 'years old')
 
