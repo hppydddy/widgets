@@ -5,6 +5,14 @@ import json
 st.title('Mini App')
 st.header('_Streamlit_ is :blue[cool] :sunglasses:', divider='rainbow')
 
+with st.sidebar:
+    with st.echo():
+        st.write("This code will be printed to the sidebar.")
+
+    with st.spinner("Loading..."):
+        time.sleep(5)
+    st.success("Done!")
+
 variable_output = st.text_input("Enter some text", value="Streamlit is awesome")
 font_size = st.slider("Enter a font size", 1, 300, value=30)
 
